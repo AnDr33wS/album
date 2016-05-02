@@ -2,10 +2,7 @@
 return array(
     'modules' => array(
         'Application',
-        'Core',
-    	'DoctrineModule',
-    	'DoctrineORMModule'
-        //'Skel'
+        'Core'    	
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(
