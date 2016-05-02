@@ -16,6 +16,7 @@ return array (
 						'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory' 
 				) 
 		),
+		
 		'doctrine' => array (
 				'connection' => array (
 						'driver' => 'pdo_mysql',
@@ -23,10 +24,11 @@ return array (
 						'host' => 'localhost',
 						'port' => '3306',
 						'user' => 'root',
-						'dbname' => 'posts',
-						'password' => '!9293709B13BruH17' 
-				) 
-		),
+						'dbname' => 'album',
+						'password' => '!9293709B13BruH17'
+				)
+			),
+		
 		'acl' => array (
 				'roles' => array (
 						'visitante' => null,
@@ -40,9 +42,9 @@ return array (
 						'Admin\Controller\Index.delete',
 						'Admin\Controller\Auth.index',
 						'Admin\Controller\Auth.login',
-						'Admin\Controller\Auth.logout',
-				)
-				,
+						'Admin\Controller\Auth.logout'
+					
+				),
 				'privilege' => array (
 						'visitante' => array (
 								'allow' => array (
@@ -51,10 +53,9 @@ return array (
 										'Admin\Controller\Auth.index',
 										'Admin\Controller\Auth.login',
 										'Admin\Controller\Auth.logout',
-										'Application\Controller\Comment.save' 
-								) 
+																		) 
 						),
-						'redator' => array (
+						'redator' => array (	
 								'allow' => array (
 										'Admin\Controller\Index.save' 
 								) 
@@ -66,5 +67,6 @@ return array (
 						) 
 				) 
 		) 
-);
-		
+)
+;
+

@@ -3,6 +3,8 @@ return array(
     'modules' => array(
         'Application',
         'Core',
+    	'DoctrineModule',
+    	'DoctrineORMModule'
         //'Skel'
     ),
     'module_listener_options' => array(

@@ -13,24 +13,24 @@ use Doctrine\ORM\Mapping as ORM;
  * @category Application
  * @package Model
  *          @ORM\Entity
- *          @ORM\Table(name="albuns")
+ *          @ORM\Table(name="album")
  */
-// @ORM\Table(name="albuns") = database do banco
 class Album extends Entity {
 	
 	/**
 	 * @ORM\id
+	 * @ORM\GeneratedValue("AUTO")
 	 * @ORM\column(type="integer")
 	 */
 	protected $id;
 	
 	/**
-	 * @ORM\column(type="string")
+	 * @ORM\column(type="string", length=100)
 	 */
 	protected $artist;
 	
 	/**
-	 * @ORM\column(type="string")
+	 * @ORM\column(type="string", length=100)
 	 */
 	protected $title;
 	public function getId() {
@@ -49,7 +49,7 @@ class Album extends Entity {
 		return $this->$title;
 	}
 	public function setTitle($title) {
-		$this->artist = $artist;
+		$this->title = $title;
 	}
 	/**
 	 * Configura os filtros dos campos da entidade

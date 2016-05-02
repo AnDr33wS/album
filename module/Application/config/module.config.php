@@ -58,21 +58,46 @@ return array(
     'service_manager' => array(
         'factories' => array(
             'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
+            'Doctrine\ORM\EntityManager' => function($sm) {
+				$config = $sm->get('Configuration');
+				$doctrineConfig = new \Doctrine\ORM\Configuration();
+				$cache = new $config['doctrine']['driver']['cache'];
+				$doctrineConfig->setQueryCacheImpl($cache);
+				$doctrineConfig->setProxyDir('/tmp');
+				$doctrineConfig->setProxyNamespace('EntityProxy');
+				$doctrineConfig->setAutoGenerateProxyClasses(true);
+				$driver = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver(
+					new \Doctrine\Common\Annotations\AnnotationReader(),
+					array($config['doctrine']['driver']['paths'])
+				);
+				$doctrineConfig->setMetadataDriverImpl($driver);
+				$doctrineConfig->setMetadataCacheImpl($cache);
+				\Doctrine\Common\Annotations\AnnotationRegistry::registerFile(
+					getenv('PROJECT_ROOT'). '/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/DoctrineAnnotations.php'
+				);
+				$em = \Doctrine\ORM\EntityManager::create(
+					$config['doctrine']['connection'],
+					$doctrineConfig
+				);
+				return $em;
+		
+			},
         ),
     ),
     'translator' => array(
-        'locale' => 'en_US',
+        'locale' => 'pt_BR',
         'translation_file_patterns' => array(
             array(
-                'type'     => 'gettext',
+                'type'     => 'phparray',
                 'base_dir' => __DIR__ . '/../language',
-                'pattern'  => '%s.mo',
+                'pattern'  => '%s.php',
             ),
         ),
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index'     => 'Application\Controller\IndexController',
+        		'Application\Controller\Comment'     => 'Application\Controller\CommentController',
         ),
     ),
     'view_manager' => array(
@@ -90,4 +115,13 @@ return array(
             __DIR__ . '/../view',
         ),
     ),
+    'strategies' => array(
+            'ViewJsonStrategy',
+    ),
+    'doctrine' => array(
+		'driver' => array(
+			'cache' => 'Doctrine\Common\Cache\ArrayCache',
+			'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Model')
+		),
+	)
 );
