@@ -25,7 +25,7 @@ return array (
 						'port' => '3306',
 						'user' => 'root',
 						'dbname' => 'album',
-						'password' => '!9293709B13BruH17'
+						'password' => 'temp10'
 				)
 			),
 		

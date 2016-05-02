@@ -1,43 +1,106 @@
-### Welcome to the *Zend Framework 2.2* Release!
+![Logo](https://raw.githubusercontent.com/zendframework/zf2/234b554f2ca202095aea32e4fa557553f8849664/resources/ZendFramework-logo.png)
 
-Master: [![Build Status](https://secure.travis-ci.org/zendframework/zf2.png?branch=master)](http://travis-ci.org/zendframework/zf2)
-Develop: [![Build Status](https://secure.travis-ci.org/zendframework/zf2.png?branch=develop)](http://travis-ci.org/zendframework/zf2)
+# Welcome to the *Zend Framework 2.5* Release!
 
 ## RELEASE INFORMATION
 
-*Zend Framework 2.2.6*
+*Zend Framework 2.5.0*
 
-This is the sixth maintenance release for the 2.2 series.
+This is the fifth minor (feature) release for the version 2 series.
 
-06 Mar 2014
+03 June 2015
 
-### UPDATES IN 2.2.6
+### UPDATES IN 2.5.0
 
-**This release contains security updates:**
-
-- **ZF2014-01:** Potential XXE/XEE attacks using PHP functions:
-  `simplexml_load_*`, `DOMDocument::loadXML`, and `xml_parse`. A new component,
-  `ZendXml`, was introduced to mitigate XML eXternal Entity and XML Entity
-  Expansion vectors that are present in older versions of libxml2 and/or PHP.
-  `Zend\Json\Json::fromXml()` and `Zend\XmlRpc`'s `Response` and `Fault` classes
-  were potentially vulnerable to these attacks. If you use either of these
-  components, we recommend upgrading immediately.
+This release modifies Zend Framework to be a metapackage, with dependencies on
+each of the individual components that comprised Zend Framework in previous
+versions.
 
 Please see [CHANGELOG.md](CHANGELOG.md).
 
 ### SYSTEM REQUIREMENTS
 
-Zend Framework 2 requires PHP 5.3.3 or later; we recommend using the
+Zend Framework 2 requires PHP 5.5 or later; we recommend using the
 latest PHP version whenever possible.
 
 ### INSTALLATION
 
-Please see [INSTALL.md](INSTALL.md).
+```console
+$ composer require zendframework/zendframework
+```
+
+#### GETTING STARTED
+
+A great place to get up-to-speed quickly is the Zend Framework
+QuickStart:
+
+http://framework.zend.com/manual/current/en/user-guide/overview.html
+
+The QuickStart covers some of the most commonly used components of ZF.
+Since Zend Framework is designed with a use-at-will architecture and
+components are loosely coupled, you can select and use only those
+components that are needed for your project.
+
+### COMPONENTS
+
+This package is a metapackage aggregating the following components:
+
+- [zend-authentication](https://github.com/zendframework/zend-authentication)
+- [zend-barcode](https://github.com/zendframework/zend-barcode)
+- [zend-cache](https://github.com/zendframework/zend-cache)
+- [zend-captcha](https://github.com/zendframework/zend-captcha)
+- [zend-code](https://github.com/zendframework/zend-code)
+- [zend-config](https://github.com/zendframework/zend-config)
+- [zend-console](https://github.com/zendframework/zend-console)
+- [zend-crypt](https://github.com/zendframework/zend-crypt)
+- [zend-db](https://github.com/zendframework/zend-db)
+- [zend-debug](https://github.com/zendframework/zend-debug)
+- [zend-di](https://github.com/zendframework/zend-di)
+- [zend-dom](https://github.com/zendframework/zend-dom)
+- [zend-escaper](https://github.com/zendframework/zend-escaper)
+- [zend-eventmanager](https://github.com/zendframework/zend-eventmanager)
+- [zend-feed](https://github.com/zendframework/zend-feed)
+- [zend-file](https://github.com/zendframework/zend-file)
+- [zend-filter](https://github.com/zendframework/zend-filter)
+- [zend-form](https://github.com/zendframework/zend-form)
+- [zend-http](https://github.com/zendframework/zend-http)
+- [zend-i18n](https://github.com/zendframework/zend-i18n)
+- [zend-inputfilter](https://github.com/zendframework/zend-inputfilter)
+- [zend-json](https://github.com/zendframework/zend-json)
+- [zend-ldap](https://github.com/zendframework/zend-ldap)
+- [zend-loader](https://github.com/zendframework/zend-loader)
+- [zend-log](https://github.com/zendframework/zend-log)
+- [zend-mail](https://github.com/zendframework/zend-mail)
+- [zend-math](https://github.com/zendframework/zend-math)
+- [zend-memory](https://github.com/zendframework/zend-memory)
+- [zend-mime](https://github.com/zendframework/zend-mime)
+- [zend-modulemanager](https://github.com/zendframework/zend-modulemanager)
+- [zend-mvc](https://github.com/zendframework/zend-mvc)
+- [zend-navigation](https://github.com/zendframework/zend-navigation)
+- [zend-paginator](https://github.com/zendframework/zend-paginator)
+- [zend-permissions-acl](https://github.com/zendframework/zend-permissions-acl)
+- [zend-permissions-rbac](https://github.com/zendframework/zend-permissions-rbac)
+- [zend-progressbar](https://github.com/zendframework/zend-progressbar)
+- [zend-serializer](https://github.com/zendframework/zend-serializer)
+- [zend-server](https://github.com/zendframework/zend-server)
+- [zend-servicemanager](https://github.com/zendframework/zend-servicemanager)
+- [zend-session](https://github.com/zendframework/zend-session)
+- [zend-soap](https://github.com/zendframework/zend-soap)
+- [zend-stdlib](https://github.com/zendframework/zend-stdlib)
+- [zend-tag](https://github.com/zendframework/zend-tag)
+- [zend-test](https://github.com/zendframework/zend-test)
+- [zend-text](https://github.com/zendframework/zend-text)
+- [zend-uri](https://github.com/zendframework/zend-uri)
+- [zend-validator](https://github.com/zendframework/zend-validator)
+- [zend-version](https://github.com/zendframework/zend-version)
+- [zend-view](https://github.com/zendframework/zend-view)
+- [zend-xmlrpc](https://github.com/zendframework/zend-xmlrpc)
+- [ZendXml](https://github.com/zendframework/ZendXml)
 
 ### CONTRIBUTING
 
-If you wish to contribute to Zend Framework, please read both the
-[CONTRIBUTING.md](CONTRIBUTING.md) and [README-GIT.md](README-GIT.md) file.
+If you wish to contribute to Zend Framework, please read the
+[CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 ### QUESTIONS AND FEEDBACK
 
@@ -74,7 +137,7 @@ For sensitive email communications, please use [our PGP key](http://framework.ze
 ### LICENSE
 
 The files in this archive are released under the Zend Framework license.
-You can find a copy of this license in [LICENSE.txt](LICENSE.txt).
+You can find a copy of this license in [LICENSE.md](LICENSE.md).
 
 ### ACKNOWLEDGEMENTS
 
